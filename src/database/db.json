@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Dummy Name 1",
+      "username": "User1",
+      "email": "user1@dummyemail.com"
+    },
+    {
+      "id": "2",
+      "name": "Dummy Name 2",
+      "username": "User2",
+      "email": "user2@dummyemail.com"
+    },
+    {
+      "id": "3684e6d2-7e95-4f0f-86cb-e3f05f305f82",
+      "fullname": "Raymond Combs",
+      "username": "tuhokywab",
+      "email": "qimakenuju@mailinator.com"
+    }
+  ]
+}
