@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function New() {
   const [photo, setPhoto] = useState(null); // Store API data
   const [pageNumber, setPageNumber] = useState(1); // Current page
+  const btnRef = useRef(null); // Ref for "Load more" button
 
   useEffect(() => {
     async function getData() {
@@ -28,11 +29,30 @@ function New() {
     getData();
   }, [pageNumber]); // Dependency added to re-run on pageNumber change
 
-  const handleLoadMore = () => {
-    if (photo?.next) {
-      setPageNumber(pageNumber + 1); // Increment page number
+  useEffect(() => {
+    const observerCallback = (entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting && photo?.next) {
+        // If the button is in view and there's more data to load
+        setPageNumber((prev) => prev + 1);
+      }
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      root: null, // Observe within the viewport
+      rootMargin: "0px",
+      threshold: 1.0, // Trigger only when the entire button is visible
+    });
+
+    if (btnRef.current) {
+      observer.observe(btnRef.current);
     }
-  };
+
+    return () => {
+      // Cleanup observer when component unmounts or dependencies change
+      if (btnRef.current) observer.unobserve(btnRef.current);
+    };
+  }, [photo?.next]); // Dependency ensures observer is updated if photo.next changes
 
   return (
     <div>
@@ -44,7 +64,7 @@ function New() {
           </div>
         ))}
       <button
-        onClick={handleLoadMore}
+        ref={btnRef}
         disabled={!photo?.next} // Disable button if no more pages
         className="bg-green-600 px-4 py-2 text-center text-yellow-50"
       >
