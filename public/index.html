@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle {
+            width: 150px;
+            height: 159px;
+            border: 2px gold solid;
+            border-radius: 50%;
+            margin-left: auto;
+            display:none;
+        }
+        .display-block {
+            display: block; /* Visible when added */
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+    <h1>
+        eaque totam ipsa tenetur hic. Assumenda doloremque provident consequatur explicabo earum soluta quia, fugit eligendi eveniet dolor voluptate corrupti ipsam dolorem aliquam blanditiis! Maiores et totam illum maxime earum impedit asperiores, eaque eius consequuntur odit laboriosam quisquam incidunt esse consequatur, recusandae eum blanditiis reiciendis delectus? Doloribus, dolores rem, aliquid, consequuntur esse dolor voluptates nostrum voluptatum sed mollitia iusto id quisquam in aut adipisci iure a laborum impedit at quas. Odit earum vero est eveniet facere corporis assumenda? Commodi cum quisquam aliquam officiis modi est id et alias recusandae! Corrupti recusandae assumenda in asperiores ipsa excepturi dolores ab minima totam voluptates nesciunt eligendi, ducimus cupiditate fuga illum repellendus a minus quis. Atque vel ullam quidem culpa quisquam voluptatum minima quibusdam odit ut recusandae distinctio at asperiores a cum omnis error, ipsum aspernatur perferendis delectus! Facere cupiditate aut libero quam possimus commodi aliquid totam in voluptatem, dolorem facilis, minus, veniam molestias animi asperiores nesciunt laborum recusandae debitis. Aut non, voluptas nisi exercitationem in officia recusandae corrupti. Est provident fugiat, incidunt, qui quibusdam ratione, dicta earum laborum possimus quos ipsa? Possimus soluta ratione inventore facilis molestiae reiciendis, fugit atque animi ab. Laborum doloribus nesciunt impedit odit praesentium autem mollitia dignissimos fugit. Reprehenderit quasi quod nam.
+    </h1>
+   
+    <h2 class="h2">
+        eaque totam ipsa tenetur hic. Assumenda doloremque provident consequatur explicabo earum soluta quia, fugit eligendi eveniet dolor voluptate corrupti ipsam dolorem aliquam blanditiis! Maiores et totam illum maxime earum impedit asperiores, eaque eius consequuntur odit laboriosam quisquam incidunt esse consequatur, recusandae eum blanditiis reiciendis delectus? Doloribus, dolores rem, aliquid, consequuntur esse dolor voluptates nostrum voluptatum sed mollitia iusto id quisquam in aut adipisci iure a laborum impedit at quas. Odit earum vero est eveniet facere corporis assumenda? Commodi cum quisquam aliquam officiis modi est id et alias recusandae! Corrupti recusandae assumenda in asperiores ipsa excepturi dolores ab minima totam voluptates nesciunt eligendi, ducimus cupiditate fuga illum repellendus a minus quis. Atque vel ullam quidem culpa quisquam voluptatum minima quibusdam odit ut recusandae distinctio at asperiores a cum omnis error, ipsum aspernatur perferendis delectus! Facere cupiditate aut libero quam possimus commodi aliquid totam in voluptatem, dolorem facilis, minus, veniam molestias animi asperiores nesciunt laborum recusandae debitis. Aut non, voluptas nisi exercitationem in officia recusandae corrupti. Est provident fugiat, incidunt, qui quibusdam ratione, dicta earum laborum possimus quos ipsa? Possimus soluta ratione inventore facilis molestiae reiciendis, fugit atque animi ab. Laborum doloribus nesciunt impedit odit praesentium autem mollitia dignissimos fugit. Reprehenderit quasi quod nam.
+    </h2>
+    <script>
+        // window.addEventListener("scroll", function () {
+        //     const scrollTop = window.scrollY;
+        //     console.log(scrollTop);
+        // })
+        let hi = document.querySelector(".circle")
+        let circle = document.querySelector(".h2");
+        let isObserver = (item) => {
+            let section = item[0];
+            if (section.isIntersecting) {
+                
+              hi.classList.add("display-block");
+            } else {
+                // hi.classList.add("display-block");
+                
+            }
+        }
+        let observer = new IntersectionObserver(isObserver)
+        observer.observe(circle)
+    </script>
+</body>
+</html>
